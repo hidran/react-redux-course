@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import Clock from  './Clock'
 const happy =  <h2>I am happy</h2>;
  function getDate(date) {
     return date.toLocaleDateString()  + ' ' + date.toLocaleTimeString();
  }
 class App extends Component {
+
   render() {
     return (
       <React.Fragment>
@@ -15,9 +16,9 @@ class App extends Component {
       </div>
       { happy }
       { 4+4}
-      <h2> Today is  { new Date().toLocaleDateString()  + ' ' +new Date().toLocaleTimeString() }</h2>
-      <h2> { getDate(new Date())}</h2>
-      <h2> { getDate(new Date())}</h2>
+      <Clock country="Italy" timezone="0" />
+      <Clock country="Russia"  timezone="2" />
+      <Clock country="Cuba" timezone="-6" ></Clock>
       </React.Fragment>
     );
   }
