@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Clock from  './Clock'
 const happy =  <h2>I am happy</h2>;
@@ -12,7 +11,7 @@ class App extends Component {
     return (
       <React.Fragment>
       <div className="App">
-       <h1> My firsr React App</h1>
+       <h1> My first React App</h1>
       </div>
       { happy }
       { 4+4}

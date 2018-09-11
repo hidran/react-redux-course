@@ -9,3 +9,14 @@ h2{
   margin:auto;
   text-align: center
 }
+
+
+.clock {
+
+  color: #17D4FE;
+  font-size: 60px;
+  font-family: Orbitron, sans-serif;
+  letter-spacing: 7px;
+
+
+}
