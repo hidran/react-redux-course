@@ -14,9 +14,34 @@ h2{
 .clock {
 
   color: #17D4FE;
-  font-size: 60px;
+  font-size: 16px;
   font-family: Orbitron, sans-serif;
-  letter-spacing: 7px;
+  letter-spacing: 2px;
 
 
+}
+ul{
+  width: 400px;
+  margin: auto;
+  list-style-type: none;
+  padding: 5px;
+  border: 1px solid orange;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
+}
+li {
+  flex-grow: 1;
+  padding: 5px;
+  border: 1px solid #ccc;
+  text-align:center;
+}
+
+li button{
+   border-radius: 2px;
+   background: orangered;
+   color: #fff;
+   width: 60px;
+  
 }
