@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Clock from  './Clock'
 const happy =  <h2>I am happy</h2>;
- function getDate(date) {
-    return date.toLocaleDateString()  + ' ' + date.toLocaleTimeString();
- }
+ 
 class App extends Component {
 
   render() {
@@ -15,9 +13,9 @@ class App extends Component {
       </div>
       { happy }
       { 4+4}
-      <Clock country="Italy" timezone="0" />
-      <Clock country="Russia"  timezone="2" />
-      <Clock country="Cuba" timezone="-6" ></Clock>
+      <Clock secs="1" country="Italy" timezone="0" />
+      <Clock  secs="2" country="Russia"  timezone="2" />
+      <Clock  secs="3" country="Cuba" timezone="-6" ></Clock>
       </React.Fragment>
     );
   }
