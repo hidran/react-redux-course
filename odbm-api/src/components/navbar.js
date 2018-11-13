@@ -2,7 +2,8 @@
 import React from 'react';
 import SearchBar from './searchbar'
 import MenuBar from './menubar'
-export default function navBar() {
+export default function navBar({onSearchTerm}) {
+  
     return (
 <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <a className="navbar-brand" href="#">Navbar</a>
@@ -14,7 +15,7 @@ export default function navBar() {
   
   <div className="collapse navbar-collapse" id="navbarSupportedContent">
   <MenuBar/>
-   <SearchBar/>
+   <SearchBar onSearchMovie = {onSearchTerm}/>
   </div>
 </nav>
     )
