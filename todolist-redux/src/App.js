@@ -11,8 +11,24 @@ let todos = [
 ];
 
  function storeReducer(state = {}, action) {
-  return  {...state};
+   switch(action.type){
+     case 'ADD_TODO' :
+     return {
+        todos : [
+          action.todo, 
+          ...state.todos
+        ]
+     }
+     default: 
+     return  {...state};
+
+   }
+  
  }
+
+
+ const store = createStore(storeReducer, { todos: [...todos] } );
+
 
 
 class App extends Component {
@@ -22,13 +38,25 @@ class App extends Component {
       todos : [
         
       ]
-    }
+    };
+
+    this.todoInput = React.createRef();
   }
   componentDidMount() {
 
-    const store = createStore(storeReducer, {todos: [...todos]} );
-    console.log(store.getState())
-    this.setState({todos:[...store.getState().todos] })
+    this.setState({todos:[...store.getState().todos] });
+     store.subscribe( () => {
+      console.log(store.getState());
+      this.setState({todos:[...store.getState().todos] });
+     })
+  }
+  addTodo = () =>{
+     const todo = this.todoInput.current.value;
+      store.dispatch({
+          type: 'ADD_TODO',
+          todo
+
+      });
   }
   render() {
     return (
@@ -40,7 +68,8 @@ class App extends Component {
           </h1>
          
         </header>
-        
+        <input ref = {this.todoInput } />
+        <button onClick = {this.addTodo}>Add</button>
         <ul>
          {
            this.state.todos.map( (todo,i) => <li key={i}>{todo}</li>)
