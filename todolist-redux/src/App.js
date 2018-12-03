@@ -19,6 +19,13 @@ let todos = [
           ...state.todos
         ]
      }
+     case 'REMOVE_TODO' :
+     return {
+      todos : [
+        ...state.todos.slice(0, action.id), 
+        ...state.todos.slice( action.id + 1)
+      ]
+   }
      default: 
      return  {...state};
 
@@ -50,7 +57,7 @@ class App extends Component {
       this.setState({todos:[...store.getState().todos] });
      })
   }
-  addTodo = () =>{
+  addTodo = () => {
      const todo = this.todoInput.current.value;
       store.dispatch({
           type: 'ADD_TODO',
@@ -58,6 +65,14 @@ class App extends Component {
 
       });
   }
+  removeTodo = (i) => {
+    console.log(i)
+     store.dispatch({
+         type: 'REMOVE_TODO',
+         id : i
+
+     });
+ }
   render() {
     return (
       <div className="App">
@@ -72,7 +87,7 @@ class App extends Component {
         <button onClick = {this.addTodo}>Add</button>
         <ul>
          {
-           this.state.todos.map( (todo,i) => <li key={i}>{todo}</li>)
+           this.state.todos.map( (todo,i) => <li key={i}>{todo} <button onClick={  this.removeTodo.bind(null, i) }>-</button></li>)
          }
         </ul>
       </div>
