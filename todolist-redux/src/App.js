@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 
 import { createStore } from 'redux'
 import './App.css';
-
-
+import TodoList   from './components/todolist'
+import Header from './components/header'
+import AddTodo from './components/addtodo'
 let todos = [
   'Fare la spesa',
 'Fare i compiti',
@@ -76,20 +77,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-   
-          <h1>
-           TODO LIST
-          </h1>
-         
-        </header>
-        <input ref = {this.todoInput } />
-        <button onClick = {this.addTodo}>Add</button>
-        <ul>
-         {
-           this.state.todos.map( (todo,i) => <li key={i}>{todo} <button onClick={  this.removeTodo.bind(null, i) }>-</button></li>)
-         }
-        </ul>
+       <Header/>
+       <AddTodo/>
+        <TodoList todos = {todos}/>
       </div>
     );
   }
