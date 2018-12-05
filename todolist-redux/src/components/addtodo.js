@@ -4,6 +4,7 @@ export default function addTodo({addTodo}){
     return(
         <Fragment>
             <input ref ={ (node) => { todoInput = node }}  />
+            
             <button onClick = {addTodo}>Add</button>
             </Fragment>
 )
