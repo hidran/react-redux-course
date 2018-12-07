@@ -15,7 +15,8 @@ let todos = [
   
   
   
-   const store = createStore(storeReducer, { todos: [...todos] } );
+   const store = createStore(storeReducer, { todos: [...todos] },
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() );
 
 ReactDOM.render(
 <Provider store ={store}>

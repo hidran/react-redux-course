@@ -1,12 +1,21 @@
-import React, {Fragment} from 'react'
-export default function addTodo({addTodo}){
+import React, {Fragment} from 'react';
+
+
+export default function addTodoComponent({addTodo}){
+
      let todoInput;
     return(
         <Fragment>
-            <input ref ={ (node) => { todoInput = node }}  />
+            <input ref ={ node =>  {todoInput = node} }  />
             
-            <button onClick = {addTodo}>Add</button>
-            </Fragment>
+            <button onClick = {
+                () => {
+                    addTodo( todoInput.value )
+                    todoInput.value = '';
+                }
+                }
+                >Add</button>
+        </Fragment>
 )
 }
 

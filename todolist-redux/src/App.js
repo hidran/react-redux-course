@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-
-import { createStore } from 'redux'
 import './App.css';
 import TodoList   from './components/todolist'
 import Header from './components/header'
-import AddTodo from './components/addtodo'
+import AddNewTodo from './containers/addnew'
 import MyTodoList from './containers/mytodolist';
 
 
@@ -16,12 +14,11 @@ class App extends Component {
    
   }
   
- 
   render() {
     return (
       <div className="App">
        <Header/>
-       <AddTodo/>
+       <AddNewTodo/>
         <MyTodoList/>
       </div>
     );
