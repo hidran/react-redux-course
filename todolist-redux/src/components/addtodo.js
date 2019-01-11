@@ -5,7 +5,7 @@ export default function addTodoComponent({addTodo}){
 
      let todoInput;
     return(
-        <Fragment>
+        <div className="addtodo">
             <input ref ={ node =>  {todoInput = node} }  />
             
             <button onClick = {
@@ -15,7 +15,7 @@ export default function addTodoComponent({addTodo}){
                 }
                 }
                 >Add</button>
-        </Fragment>
+        </div>
 )
 }
 

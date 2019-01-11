@@ -22,9 +22,36 @@
 }
 ul{
   padding: 0;
-  width: 400px;
-  margin: 20px auto;
+  list-style-type: none;
+  
 }
 li{
-  text-align: left
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0px;
+  cursor: pointer;
+  min-width: 250px;
+}
+li:hover:after{
+  content: '\02A2F';
+  color: red;
+  font-size: 18px;
+  float: right;
+  margin-right: 5px;
+ 
+}
+  span::after{
+   content: '\025A1';
+   font-size: 28px;
+   padding: 4px;
+ }
+.container{
+  margin-top: 10px;
+  display: flex;
+  flex-flow: column;
+  border: 0px solid red;
+  align-items: center
+}
+li:last-child{
+  border:0px;
 }
