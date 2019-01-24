@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 
 
 export default function addTodoComponent({addTodo}){
@@ -6,11 +6,20 @@ export default function addTodoComponent({addTodo}){
      let todoInput;
     return(
         <div className="addtodo">
-            <input ref ={ node =>  {todoInput = node} }  />
+            <input 
+             onKeyUp = {
+                 (evt) =>{
+                    if( +evt.keyCode === 13){
+                        addTodo( todoInput.value );
+                        todoInput.value = '';
+                    }
+                 }
+             }
+            ref ={ node =>  {todoInput = node} }  />
             
             <button onClick = {
                 () => {
-                    addTodo( todoInput.value )
+                    addTodo( todoInput.value );
                     todoInput.value = '';
                 }
                 }

@@ -5,7 +5,7 @@ export default function todoList({todos, removeTodo}){
 return (
 <ul>
 {
- todos.map( (todo,i) => <Todo id ={i} key={i} onClick = {removeTodo} todo ={todo}/>)
+ todos.map( (todo,i) => <Todo id ={i} key={i} onClick = {removeTodo} todoItem ={todo}/>)
 }
 </ul>
 

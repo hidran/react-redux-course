@@ -33,18 +33,29 @@ li{
   min-width: 250px;
 }
 li:hover:after{
-  content: '\02A2F';
+  content: '\02A2F';/*cross*/
   color: red;
   font-size: 18px;
   float: right;
   margin-right: 5px;
+  margin-top:10px;
  
 }
-  span::after{
+li.completed {
+  text-decoration: line-through;
+  color:red;
+}
+  span.uncomplete:after{
    content: '\025A1';
    font-size: 28px;
    padding: 4px;
  }
+ span.completed:after{
+  content: '\02713';
+  font-size: 28px;
+  padding: 4px;
+  color: green;
+}
 .container{
   margin-top: 10px;
   display: flex;
