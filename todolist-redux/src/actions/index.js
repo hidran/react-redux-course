@@ -2,7 +2,10 @@ export const addTodo = (todo) => {
    
     return  {
          type: 'ADD_TODO',
-         todo
+        payload: {
+            text:todo,
+            completed : false
+        }
 
      };
  };
@@ -15,3 +18,12 @@ export const addTodo = (todo) => {
 
     };
 };
+
+export const  toggleTodo = (i) => {
+   
+    return {
+         type: 'TOGGLE_TODO',
+         id : i
+ 
+     };
+ };

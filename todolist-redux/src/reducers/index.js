@@ -5,7 +5,11 @@
       case 'ADD_TODO' :
       return {
          todos : [
-           action.todo, 
+           {
+             id: state.todos.length,
+             todo: action.payload.text,
+             completed : action.payload.completed
+           }, 
            ...state.todos
          ]
       }
@@ -16,6 +20,21 @@
          ...state.todos.slice( action.id + 1)
        ]
     }
+    case 'TOGGLE_TODO' :
+    return {
+     todos : 
+       state.todos.map((todo) =>{
+          if(todo.id !== action.id){
+            return todo
+          }
+          return {
+             ...todo,
+             completed : !todo.completed
+          }
+       })
+       
+     
+  }
       default: 
       return  {...state};
  
