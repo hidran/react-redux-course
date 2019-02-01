@@ -4,6 +4,7 @@
     switch(action.type){
       case 'ADD_TODO' :
       return {
+        ...state,
          todos : [
            {
              id: state.todos.length,
@@ -15,6 +16,7 @@
       }
       case 'REMOVE_TODO' :
       return {
+        ...state,
        todos : [
          ...state.todos.slice(0, action.id), 
          ...state.todos.slice( action.id + 1)
@@ -22,6 +24,7 @@
     }
     case 'TOGGLE_TODO' :
     return {
+      ...state,
      todos : 
        state.todos.map((todo) =>{
           if(todo.id !== action.id){
@@ -35,6 +38,13 @@
        
      
   }
+   case 'SET_FILTER':{
+     return {
+         ...state,
+         activeFilter : action.activeFilter
+     }
+      
+   }
       default: 
       return  {...state};
  

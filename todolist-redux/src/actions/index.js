@@ -27,3 +27,13 @@ export const  toggleTodo = (i) => {
  
      };
  };
+
+ export const filterTodo = (filter = 'ALL') => {
+
+    return {
+        type : 'SET_FILTER',
+        activeFilter : filter
+    }
+
+ }
+ 

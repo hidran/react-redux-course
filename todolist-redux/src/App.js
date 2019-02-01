@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/header'
 import AddNewTodo from './containers/addnew'
 import MyTodoList from './containers/mytodolist';
- import TodoFooter from './components/todofooter'
+ import TodoFooter from './containers/todofootercontainer'
 
 
 class App extends Component {

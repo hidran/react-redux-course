@@ -2,18 +2,19 @@
 import React from 'react';
 import FooterLink from './filterlink';
 
-export default function todoFooter (params){
+export default function todoFooter ({filterTodo}){
+   
   return (
     <div className="footer">
-          <FooterLink actionType="ALL">
+          <FooterLink onClickFilter ={filterTodo} actionType="ALL">
             ALL
           </FooterLink>
           {' '}
-          <FooterLink actionType="TODO">
+          <FooterLink  onClickFilter ={filterTodo} actionType="TODO">
             TO DO
           </FooterLink>
           {' '}
-          <FooterLink actionType="COMPLETED">
+          <FooterLink  onClickFilter ={filterTodo} actionType="COMPLETED">
             COMPLETED
           </FooterLink>
          
