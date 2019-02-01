@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/header'
 import AddNewTodo from './containers/addnew'
 import MyTodoList from './containers/mytodolist';
-import FooterLink from './components/filterlink';
+ import TodoFooter from './components/todofooter'
 
 
 class App extends Component {
@@ -15,19 +15,7 @@ class App extends Component {
        <div className="container">
        <AddNewTodo/>
         <MyTodoList/>
-        <div className="footer">
-          <FooterLink actionType="ALL">
-            ALL
-          </FooterLink>
-          {' '}
-          <FooterLink actionType="TODO">
-            TO DO
-          </FooterLink>
-          {' '}
-          <FooterLink actionType="COMPLETED">
-            COMPLETED
-          </FooterLink>
-        </div>
+        <TodoFooter/>
         </div>
       </div>
     );
