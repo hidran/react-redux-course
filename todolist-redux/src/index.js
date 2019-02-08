@@ -30,12 +30,21 @@ let storeTodos = {
   ]
 };
   
-  
+  if(localStorage.getItem('mytodolist')){
+    const currState = JSON.parse(localStorage.getItem('mytodolist'));
+     if(currState){
+      storeTodos = currState;
+     }
+  }
   
    const store = createStore(storeReducer, { ...storeTodos },
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() );
 
-    store.subscribe(()=>{console.log(store.getState())})
+    store.subscribe(()=>{
+      const currState = JSON.stringify(store.getState());
+      localStorage.setItem('mytodolist', currState);
+    }
+      );
 ReactDOM.render(
 <Provider store ={store}>
   <App />
