@@ -5,9 +5,10 @@
       case 'ADD_TODO' :
       return {
         ...state,
+        activeFilter: 'TODO',
          todos : [
            {
-             id: state.todos.length,
+             id: action.payload.id || state.todos.length,
              todo: action.payload.text,
              completed : action.payload.completed
            }, 
