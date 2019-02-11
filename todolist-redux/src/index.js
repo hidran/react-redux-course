@@ -4,9 +4,10 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import {applyMiddleware,  createStore } from 'redux';
+import {applyMiddleware,  createStore,compose  } from 'redux';
 import storeReducer from './reducers/index';
 import {Provider} from 'react-redux';
+import logger from 'redux-logger';
 let storeTodos = {
   activeFilter: 'ALL',
     todos:[
@@ -36,30 +37,10 @@ let storeTodos = {
       storeTodos = currState;
      }
   }
-  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  function logger({getState, dispatch}) {
-    console.log('MIDDLEWARE CHIAMATO');
-    return function (next) {
-            console.log('PRIMA DELLA CHIAMATA', getState());
-       return function (action) {
-           console.log('AZIONE', action)
-         console.log('PRIMA DELL\'AZIONE ', getState());
-          let result =  next(action);
-         console.log('DOPO DELLA AZIONE', getState());
-       //  console.log('RESULT', result);
-         return result;
-       }
-    }
-    
-  }
-   const logger2 = store  => next => action  => {
-    //store.dispatch({type:'LOADING'})
-     let result =  next(action);
-     console.log('RESULT2', result);
-     return result;
-   }
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
    const store = createStore(storeReducer, { ...storeTodos },
-       applyMiddleware(logger, logger2)
+       composeEnhancers(applyMiddleware(logger))
    
    );
 
