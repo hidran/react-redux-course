@@ -1,3 +1,22 @@
 {
-  "todos": []
+  "todos": [
+    {
+      "id": 0,
+      "todo": "fare la spesa",
+      "completed": true
+    },
+    {
+      "todo": "Andare in farmacia",
+      "completed": true,
+      "id": 1
+    },
+    {
+      "todo": "Andare a scuola",
+      "completed": true,
+      "id": 2
+    }
+  ],
+  "activeFilter": {
+    "filter": "TODO"
+  }
 }
