@@ -1,0 +1,89 @@
+PUT http://localhost:3004/todos/0
+Content-Type: application/json
+
+{
+  "id":0,
+  "todo": "fare la spesa cambiato",
+  "completed": true
+}
+
+<> 2019-02-11T105729.200.json
+
+###
+
+PATCH http://localhost:3004/todos/0
+Content-Type: application/json
+
+{
+  "id":0,
+  "completed": true
+}
+
+<> 2019-02-11T105648.200.json
+
+###
+
+PATCH http://localhost:3004/todos
+Content-Type: application/json
+
+{
+  "id":0,
+  "completed": true
+}
+
+<> 2019-02-11T105638.404.json
+
+###
+
+POST http://localhost:3004/todos
+Content-Type: application/json
+
+{
+  "id":0,
+  "todo": "Fare la spesa3",
+  "completed": false
+}
+
+<> 2019-02-11T105549.201.json
+
+###
+
+GET http://localhost:3004/todos
+Accept: application/json
+
+<> 2019-02-11T105341.200.json
+
+###
+
+GET https://localhost:3004/todos
+Accept: application/json
+
+###
+
+GET https://httpbin.org/ip
+Accept: application/json
+
+<> 2019-02-11T104929.200.json
+
+###
+
+POST https://httpbin.org/post
+Content-Type: application/json
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+<> 2019-02-11T104813.200.json
+
+###
+
+GET http://localhost:3004/todos
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-02-11T104630.200.json
+
+###
+

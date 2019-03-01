@@ -3,7 +3,7 @@
     {
       "id": 0,
       "todo": "fare la spesa",
-      "completed": true
+      "completed": false
     },
     {
       "todo": "Andare in farmacia",
@@ -12,8 +12,33 @@
     },
     {
       "todo": "Andare a scuola",
-      "completed": true,
+      "completed": false,
       "id": 2
+    },
+    {
+      "todo": "wewe",
+      "completed": false,
+      "id": 3
+    },
+    {
+      "todo": "wewe",
+      "completed": true,
+      "id": 4
+    },
+    {
+      "todo": "asasas",
+      "completed": true,
+      "id": 5
+    },
+    {
+      "todo": "sasas",
+      "completed": true,
+      "id": 6
+    },
+    {
+      "todo": "sdsd",
+      "completed": true,
+      "id": 7
     }
   ],
   "activeFilter": {

@@ -33,7 +33,7 @@ li{
   cursor: pointer;
   min-width: 250px;
 }
-li:hover:after{
+li:hover span.cross:after{
   content: '\02A2F';/*cross*/
   color: red;
   font-size: 18px;

@@ -1,11 +1,16 @@
 
 import React from 'react';
-export default function todo({todoItem, onClick, id}){
+export default function todo({todoItem, toggleTodo, id, removeTodo}){
 //dispatch(removeTodo(i))
 return (
-<li  className={todoItem.completed? 'completed':''} onClick ={() => onClick(id,!todoItem.completed)}>
+<li  className={todoItem.completed? 'completed':''} 
+onClick ={() => toggleTodo(id,!todoItem.completed)}>
 <span className={todoItem.completed? 'completed':'uncomplete'}></span>
+
 {todoItem.todo} 
+<span className ="cross" onClick ={ () => removeTodo(id)
+
+}></span>
 </li>
 ) ;
 }

@@ -15,10 +15,7 @@
       case 'REMOVE_TODO' :
       return {
         ...state,
-       todos : [
-         ...state.todos.slice(0, action.id), 
-         ...state.todos.slice( action.id + 1)
-       ]
+       todos : state.todos.filter( ele => ele.id != action.id)
     }
     case 'TOGGLE_TODO_FULFILLED' :
     return {
