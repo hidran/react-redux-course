@@ -24,7 +24,7 @@ export const addTodo = (todo) => {
    
    return {
         type: 'REMOVE_TODO',
-        id : i
+        payload: axios.delete(APIURL + '/' + i, {id: i})
 
     };
 };

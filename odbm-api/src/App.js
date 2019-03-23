@@ -6,11 +6,7 @@ import NavBar from './components/navbar'
 const APIKEY = '4cb9def9';
 const APIURL = 'http://www.omdbapi.com';
 
-function fetchMovies(search = '') {
 
-  return fetch(APIURL + '?apikey=' + APIKEY +'&s='+ search).then( res => res.json());
-    
-};
 class App extends Component {
   
   constructor(props){
@@ -21,18 +17,24 @@ class App extends Component {
     }
     
   }
+  fetchMovies =  (search = '') => {
+
+    return fetch(APIURL + '?apikey=' + APIKEY +'&s='+ search).then( res => res.json());
+      
+  };
   searchMovies = (term = '') =>{
      if(term.length< 3){
        return
      }
-     fetchMovies(term).then(res => {
+     this.fetchMovies(term).then(res => {
+       console.log(this)
       this.setState({
         movies : res.Search,
         totalCount : res.totalResults
       })
     })
 
-  }
+  };
   componentDidMount(){
     this.searchMovies('back to the future')
   }

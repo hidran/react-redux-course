@@ -8,7 +8,11 @@ onClick ={() => toggleTodo(id,!todoItem.completed)}>
 <span className={todoItem.completed? 'completed':'uncomplete'}></span>
 
 {todoItem.todo} 
-<span className ="cross" onClick ={ () => removeTodo(id)
+<span className ="cross" onClick ={ (e) =>
+{
+    e.stopPropagation();
+    removeTodo(id)
+} 
 
 }></span>
 </li>

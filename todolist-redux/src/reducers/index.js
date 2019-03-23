@@ -12,10 +12,11 @@
            ...state.todos
          ]
       }
-      case 'REMOVE_TODO' :
+      case 'REMOVE_TODO_FULFILLED' :
+     
       return {
         ...state,
-       todos : state.todos.filter( ele => ele.id != action.id)
+       todos : state.todos.filter( ele => ele.id != action.payload.config.id)
     }
     case 'TOGGLE_TODO_FULFILLED' :
     return {
