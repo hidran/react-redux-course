@@ -13,6 +13,7 @@ import {removeTodo, toggleTodo} from '../actions/index'
  }
   const mapStateToProps =  (state) => {
     return {
+        ...state, 
         todos: filterMyTodos(state.todos, state.activeFilter)
     }
 }

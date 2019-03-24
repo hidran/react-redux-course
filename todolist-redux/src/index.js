@@ -11,11 +11,12 @@ import logger from 'redux-logger';
 import promise from 'redux-promise-middleware';
 
 let storeTodos = {
+
 };
  
   if(localStorage.getItem('mytodolist')){
     const currState = JSON.parse(localStorage.getItem('mytodolist'));
-     if(currState){
+     if(currState && !currState.hasError){
       storeTodos = currState;
      }
   }
@@ -28,8 +29,12 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
    );
 
     store.subscribe(()=>{
-      const currState = JSON.stringify(store.getState());
-      localStorage.setItem('mytodolist', currState);
+       const state = store.getState();
+       if(!state.hasError){
+        const currState = JSON.stringify(state);
+        localStorage.setItem('mytodolist', currState);
+       }
+    
     }
       );
 ReactDOM.render(
