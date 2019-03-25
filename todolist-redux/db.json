@@ -1,5 +1,21 @@
 {
-  "todos": [],
+  "todos": [
+    {
+      "todo": "Fare la spesa",
+      "completed": false,
+      "id": 1
+    },
+    {
+      "todo": "lavare la macchina",
+      "completed": false,
+      "id": 2
+    },
+    {
+      "todo": "Portare fuori il cane",
+      "completed": false,
+      "id": 3
+    }
+  ],
   "activeFilter": {
     "filter": "ALL"
   }
