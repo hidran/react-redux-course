@@ -1,8 +1,16 @@
  
- 
+import {
+  TODOS,
+  ADD_TODO, 
+  REMOVE_TODO,
+  TOGGLE_TODO,
+  SET_FILTER
+
+ } from './../actions/actiontypes'; 
+
  export default  function storeReducer(state = {}, action) {
     switch(action.type){
-        case 'ADD_TODO_FULFILLED' :
+        case `${ADD_TODO}_FULFILLED` :
       return {
         ...state,
         activeFilter: 'TODO',
@@ -11,13 +19,13 @@
            ...state.todos
          ]
       }
-      case 'REMOVE_TODO_FULFILLED' :
+      case `${REMOVE_TODO}_FULFILLED` :
      
       return {
         ...state,
        todos : state.todos.filter( ele => ele.id !== action.payload.config.id)
     }
-    case 'TOGGLE_TODO_FULFILLED' :
+    case `${TOGGLE_TODO}_FULFILLED` :
     return {
       ...state,
      todos : 
@@ -30,25 +38,25 @@
        
      
   }
-   case 'SET_FILTER_FULFILLED':{
+   case `${SET_FILTER}_FULFILLED`:{
      return {
          ...state,
          activeFilter : action.payload.data.filter
      }
       
    }
-        case 'TODOS_FULFILLED':
+        case `${TODOS}_FULFILLED`:
             return {
                 ...state,
                 todos: action.payload.data
             }
      
        // REJECTED ACTIONS
-      case 'TODOS_REJECTED':
-      case 'ADD_TODO_REJECTED':
-      case 'SET_FILTER_REJECTED':
-      case 'TOGGLE_TODO_REJECTED':
-      case 'REMOVE_TODO_REJECTED' :
+      case `${TODOS}_REJECTED`:
+      case `${ADD_TODO}_REJECTED`:
+      case `${SET_FILTER}_REJECTED`:
+      case `${TOGGLE_TODO}_REJECTED`:
+      case `${REMOVE_TODO}_REJECTED` :
       
       return {
           ...state,
