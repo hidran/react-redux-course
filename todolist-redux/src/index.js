@@ -11,26 +11,33 @@ import logger from 'redux-logger';
 import promise from 'redux-promise-middleware';
 
 let storeTodos = {
-
+   todos: [],
+   setFilter: '',
+   error:{
+     hasError: '',
+     errorMessage: ''
+   }
 };
  
   if(localStorage.getItem('mytodolist')){
     const currState = JSON.parse(localStorage.getItem('mytodolist'));
-     if(currState && !currState.hasError){
+     if(currState && !currState.error.hasError){
       storeTodos = currState;
      }
   }
   
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-   const store = createStore(storeReducer, { ...storeTodos },
+   
+const store = createStore(storeReducer, { ...storeTodos },
        composeEnhancers(applyMiddleware(logger, promise))
    
    );
 
+
     store.subscribe(()=>{
        const state = store.getState();
-       if(!state.hasError){
+       if(!state.error.hasError){
         const currState = JSON.stringify(state);
         localStorage.setItem('mytodolist', currState);
        }

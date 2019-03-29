@@ -4,7 +4,7 @@ import {filterTodo} from '../actions/index';
 
  const mapStateToProps = (state, ownProps) => {
     return {
-        activeFilter: state.activeFilter
+        activeFilter: state.setFilter
     }
 }
 export default connect(mapStateToProps, {filterTodo})(TodoFooter);
