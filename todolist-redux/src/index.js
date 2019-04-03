@@ -18,25 +18,6 @@ let storeTodos = {
      errorMessage: ''
    }
 };
-const Test2 = ({match}) =>{
-  console.log(match.params)
- return (
- 
- <div>Test2</div>
-  )
-}
-
-
- const Test = ({match})=>{
-   console.log(match)
-   return (
-     <React.Fragment>
-     <Route path ={ `${match.path}/:id/:name`} component={Test2} />
-     <div>Test Component</div>
-     </React.Fragment>
-   )
- };
-
   if(localStorage.getItem('mytodolist')){
     const currState = JSON.parse(localStorage.getItem('mytodolist'));
      if(currState && !currState.error.hasError){
@@ -67,8 +48,8 @@ ReactDOM.render(
 <Provider store ={store}>
 <BrowserRouter>
   
-  <Route path="/" exact  component={App}/>
-  <Route path="/test" component={Test}/>
+  <App/>
+  
   </BrowserRouter>
 </Provider>
 , document.getElementById('root'));
