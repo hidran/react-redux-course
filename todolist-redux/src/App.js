@@ -5,7 +5,7 @@ import {connect } from 'react-redux';
 import {getTodos} from './actions';
 import Mytodos from './containers/mytodos';
 import Lists from './components/lists';
-import {Route} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 
 class App extends Component {
  componentDidMount() {
@@ -18,7 +18,9 @@ class App extends Component {
        <Header/>
         <Route path ="(/|/todos)" component={Mytodos} />
         
-        <Route path="/lists"  component={Lists}  exact />
+        <Route path="/lists"  component={Lists}   />
+        <Route path="/signup"  render ={() => <div>SIGNUP</div>}   />
+        <Route path="/login"   render ={() => <div title="LOGIN">LOGIN</div>}   />
       </div>
     );
   }
