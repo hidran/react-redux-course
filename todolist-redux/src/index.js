@@ -9,7 +9,7 @@ import storeReducer from './reducers/index';
 import {Provider} from 'react-redux';
 import logger from 'redux-logger';
 import promise from 'redux-promise-middleware';
-
+import { BrowserRouter, Route } from 'react-router-dom';
 let storeTodos = {
    todos: [],
    setFilter: '',
@@ -18,7 +18,25 @@ let storeTodos = {
      errorMessage: ''
    }
 };
+const Test2 = ({match}) =>{
+  console.log(match.params)
+ return (
  
+ <div>Test2</div>
+  )
+}
+
+
+ const Test = ({match})=>{
+   console.log(match)
+   return (
+     <React.Fragment>
+     <Route path ={ `${match.path}/:id/:name`} component={Test2} />
+     <div>Test Component</div>
+     </React.Fragment>
+   )
+ };
+
   if(localStorage.getItem('mytodolist')){
     const currState = JSON.parse(localStorage.getItem('mytodolist'));
      if(currState && !currState.error.hasError){
@@ -44,9 +62,14 @@ const store = createStore(storeReducer, { ...storeTodos },
     
     }
       );
+      // /test
 ReactDOM.render(
 <Provider store ={store}>
-  <App />
+<BrowserRouter>
+  
+  <Route path="/" exact  component={App}/>
+  <Route path="/test" component={Test}/>
+  </BrowserRouter>
 </Provider>
 , document.getElementById('root'));
 

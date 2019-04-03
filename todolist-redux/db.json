@@ -7,23 +7,28 @@
     },
     {
       "todo": "lavare la macchina",
-      "completed": false,
+      "completed": true,
       "id": 2
     },
     {
       "todo": "Portare fuori il cane",
-      "completed": false,
+      "completed": true,
       "id": 3
     },
     {
       "todo": "sdsdsd",
-      "completed": false,
+      "completed": true,
       "id": 4
     },
     {
       "todo": "Andare a lavorare",
       "completed": false,
       "id": 5
+    },
+    {
+      "todo": "sas",
+      "completed": true,
+      "id": 6
     }
   ],
   "activeFilter": {
