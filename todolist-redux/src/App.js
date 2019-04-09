@@ -3,13 +3,15 @@ import './App.css';
 import Header from './components/header';
 import {connect } from 'react-redux';
 import {getTodos} from './actions';
+import {getLists} from './actions/lists';
 import Mytodos from './containers/mytodos';
-import Lists from './components/lists';
+import Lists from './containers/mytodolists';
 import {Route, Switch} from 'react-router-dom';
 
 class App extends Component {
  componentDidMount() {
      this.props.getTodos();
+     this.props.getLists();
  }
 
     render() {
@@ -26,4 +28,4 @@ class App extends Component {
   }
 }
 
-export default connect(null, {getTodos})(App);
+export default connect(null, {getTodos, getLists})(App);

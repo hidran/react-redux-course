@@ -28,5 +28,15 @@
   ],
   "activeFilter": {
     "filter": "ALL"
-  }
+  },
+  "lists": [
+    {
+      "name": "Mercato",
+      "id": 1
+    },
+    {
+      "name": "Palestra",
+      "id": 2
+    }
+  ]
 }

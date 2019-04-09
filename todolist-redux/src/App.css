@@ -20,13 +20,15 @@
 .App-link {
   color: #61dafb;
 }
-ul.todos{
+ul.todos, ul.lists{
   padding: 0;
   list-style-type: none;
   min-height: 300px;
   
 }
-ul.todos li{
+ul.todos li,
+ul.lists li
+{
   text-align: left;
   border-bottom: 1px solid #ddd;
   padding: 10px 0px;
