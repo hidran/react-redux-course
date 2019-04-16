@@ -1,6 +1,6 @@
 import {connect } from 'react-redux';
 import TodoList from '../components/todolist';
-import {removeTodo, toggleTodo} from '../actions/index'
+import {removeTodo, toggleTodo, getTodos} from '../actions/index'
  const filterMyTodos = (todos =[], filter= 'ALL') =>{
    switch(filter){
        case 'TODO':
@@ -17,7 +17,7 @@ import {removeTodo, toggleTodo} from '../actions/index'
         todos: filterMyTodos(state.todos, state.setFilter)
     }
 }
-const myConnect = connect(mapStateToProps, {removeTodo, toggleTodo});
+const myConnect = connect(mapStateToProps, {removeTodo, toggleTodo,getTodos});
 
 const MyTodoList = myConnect(TodoList);
 

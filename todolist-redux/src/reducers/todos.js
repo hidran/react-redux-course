@@ -29,7 +29,14 @@ import {
        });
        
           case `${TODOS}_FULFILLED`:
-            return  action.payload.data;
+            const list = +action.payload.config.list;
+            console.log(action.payload.config);
+            alert(list)
+            if(!list){
+              return  action.payload.data;
+            }
+            return  action.payload.data.filter(todo => +todo.list === list);
+           
    
       default: 
       return  state;

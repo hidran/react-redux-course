@@ -9,21 +9,22 @@ import {
 
     } from './actiontypes'; 
 
-export  const getTodos = () => {
+export  const getTodos = (list = 0) => {
     return {
         type: TODOS,
-        payload: axios.get(APIURL)
+        payload: axios.get(APIURL, {list})
     }
 }
 
-export const addTodo = (todo) => {
+export const addTodo = (todo, list = 0) => {
    //ADD_TODO_FULFILLED
     return  {
          type: ADD_TODO,
         payload: axios.post(APIURL, 
             {
             todo:todo,
-            completed : false
+            completed : false,
+            list: +list
         })
 
      };

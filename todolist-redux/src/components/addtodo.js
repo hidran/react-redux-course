@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export default function addTodoComponent({addTodo}){
+export default function addTodoComponent({addTodo, list}){
 
      let todoInput;
     return(
@@ -10,7 +10,7 @@ export default function addTodoComponent({addTodo}){
              onKeyUp = {
                  (evt) =>{
                     if( +evt.keyCode === 13){
-                        addTodo( todoInput.value );
+                        addTodo( todoInput.value ,list );
                         todoInput.value = '';
                     }
                  }
@@ -19,7 +19,7 @@ export default function addTodoComponent({addTodo}){
             
             <button onClick = {
                 () => {
-                    addTodo( todoInput.value );
+                    addTodo( todoInput.value ,list );
                     todoInput.value = '';
                 }
                 }

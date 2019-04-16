@@ -14,7 +14,7 @@ return (
                 <NavLink activeClassName="active" to="/lists">LISTS</NavLink>
                 </li>
                 <li>
-                <NavLink  activeClassName="active" to="/todos">TODOS</NavLink>
+                <NavLink  activeClassName="active" to="/todos">ALL TODOS</NavLink>
                 </li>
                 <li>
                 <NavLink  activeClassName="active" to="/signup">SIGNUP</NavLink>

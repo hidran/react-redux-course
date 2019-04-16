@@ -24,6 +24,30 @@
       "todo": "sas",
       "completed": true,
       "id": 6
+    },
+    {
+      "todo": "comperare del pane",
+      "completed": false,
+      "list": "1",
+      "id": 7
+    },
+    {
+      "todo": "portare la borsa",
+      "completed": false,
+      "list": "2",
+      "id": 8
+    },
+    {
+      "todo": "portare i guantoni",
+      "completed": false,
+      "list": 2,
+      "id": 9
+    },
+    {
+      "todo": "portare asciugamano",
+      "completed": false,
+      "list": 2,
+      "id": 10
     }
   ],
   "activeFilter": {
