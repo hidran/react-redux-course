@@ -1,5 +1,6 @@
 <?php
-
+use App\Todo;
+use App\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,16 +13,5 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('todos', function () {
-    $todo = new stdClass;
-    $todo->name = 'Go shopping';
-    $todo->completed = 0;
-    $todo->id = 0;
-    return [
-        $todo
-    ];
-
+    return Todo::with('user')->get();
 });
