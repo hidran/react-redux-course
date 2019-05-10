@@ -1,5 +1,5 @@
 <?php
-
+use App\Models\Todo;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,12 +16,17 @@ Route::get('/', function () {
 });
 
 Route::get('todos', function () {
-    $todo = new stdClass;
-    $todo->name = 'Go shopping';
-    $todo->completed = 0;
-    $todo->id = 0;
-    return [
-        $todo
-    ];
+   //return Todo::get();
+   return Todo::where('list_id',3)
+   ->select(['id', 'todo'])
 
+   ->orderBy('id', 'DESC')
+   ->paginate(20);
 });
+
+Route::get('todos/{id}', function ($id) {
+    //return Todo::get();
+    return Todo::findOrFail($id);
+ })->where([
+     'id' => '[0-9]+'
+ ]);
