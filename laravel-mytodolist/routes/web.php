@@ -1,5 +1,7 @@
 <?php
 use App\Models\Todo;
+use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,3 +32,35 @@ Route::get('todos/{id}', function ($id) {
  })->where([
      'id' => '[0-9]+'
  ]);
+
+ Route::post('todos', function ( Request $req) {
+   return Todo::create($req->all());
+
+ });
+
+ Route::patch('todos/{id}', function ($id,  Request $req) {
+    $todo = Todo::findOrFail($id);
+    $todo->todo = $req->todo; // $req->input('todo')
+    $todo->completed =(int) $req->completed;
+    $todo->list_id = (int) $req->list_id;
+    $success = $todo->save();
+    return response()->json([
+        'data' => $todo,
+        'success' => $success
+    ]);
+ })->where([
+     'id' => '[0-9]+'
+ ]);
+
+ Route::delete('todos/{id}', function ($id) {
+
+    $todo = Todo::findOrFail($id);
+    $success = $todo->delete();
+    return response()->json([
+        'data' => $todo,
+        'success' => $success
+    ]);
+ })->where([
+     'id' => '[0-9]+'
+ ]);
+
