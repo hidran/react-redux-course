@@ -8,4 +8,5 @@ class TodoList extends Model
 {
     //todolists . lists
   // protected $table = 'lists';
+  protected $fillable = ['name','user_id'];
 }

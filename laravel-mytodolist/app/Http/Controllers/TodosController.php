@@ -12,9 +12,11 @@ class TodosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index( Request $req)
     {
-        return Todo::where('list_id',3)
+      //   request()->input('list_id');
+      $list = $req->list_id ?? 0;
+        return Todo::where('list_id',$list)
         ->select(['id', 'todo'])
 
         ->orderBy('id', 'DESC')
