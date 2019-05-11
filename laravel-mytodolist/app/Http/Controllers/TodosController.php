@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Todo;
 use Illuminate\Http\Request;
 
-class TodoController extends Controller
+class TodosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,17 +14,11 @@ class TodoController extends Controller
      */
     public function index()
     {
-        //
-    }
+        return Todo::where('list_id',3)
+        ->select(['id', 'todo'])
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        ->orderBy('id', 'DESC')
+        ->paginate(20);
     }
 
     /**
@@ -33,9 +27,9 @@ class TodoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        //
+        return Todo::create($req->all());
     }
 
     /**
@@ -46,18 +40,7 @@ class TodoController extends Controller
      */
     public function show(Todo $todo)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Todo  $todo
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Todo $todo)
-    {
-        //
+        return $todo;
     }
 
     /**
@@ -67,9 +50,17 @@ class TodoController extends Controller
      * @param  \App\Models\Todo  $todo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Todo $todo)
+    public function update(Request $req, Todo $todo)
     {
-        //
+
+        $todo->todo = $req->todo; // $req->input('todo')
+        $todo->completed =(int) $req->completed;
+        $todo->list_id = (int) $req->list_id;
+        $success = $todo->save();
+        return response()->json([
+            'data' => $todo,
+            'success' => $success
+        ]);
     }
 
     /**
@@ -80,6 +71,12 @@ class TodoController extends Controller
      */
     public function destroy(Todo $todo)
     {
-        //
+
+
+    $success = $todo->delete();
+    return response()->json([
+        'data' => $todo,
+        'success' => $success
+    ]);
     }
 }
