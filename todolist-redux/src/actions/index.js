@@ -23,7 +23,7 @@ export const addTodo = (todo, list = 0) => {
         payload: axios.post(APIURL, {
             todo: todo,
             completed: false,
-            list: +list
+            list_id: +list
         })
 
     };
@@ -38,11 +38,12 @@ export const removeTodo = (i) => {
     };
 };
 
-export const toggleTodo = (i, value) => {
+export const toggleTodo = (todo, value) => {
 
     return {
         type: TOGGLE_TODO,
-        payload: axios.patch(APIURL + '/' + i, {
+        payload: axios.patch(APIURL + '/' + todo.id, {
+            ...todo,
             completed: value
         })
 

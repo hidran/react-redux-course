@@ -11,29 +11,40 @@
      switch (action.type) {
          case `${ADD_TODO}_FULFILLED`:
              return [
-                 action.payload.data,
+                 action.payload.data.result,
                  ...state
              ];
 
          case `${REMOVE_TODO}_FULFILLED`:
+             {
 
-             return state.filter(ele => ele.id !== action.payload.config.id);
+                 const success = action.payload.data.success;
 
+                 return state.filter(ele => success && ele.id !== action.payload.config.id);
+             }
          case `${TOGGLE_TODO}_FULFILLED`:
-             return state.map((todo) => {
-                 if (todo.id !== action.payload.data.id) {
-                     return todo
-                 }
-                 return action.payload.data
-             });
+             {
+                 const result = action.payload.data.result;
+
+                 return state.map((todo) => {
+                     if (todo.id !== result.id) {
+                         return todo
+                     }
+                     return result;
+                 });
+
+             }
 
          case `${TODOS}_FULFILLED`:
-             const list = +action.payload.config.list;
-             console.log(action.payload.config);
-             const todos = action.payload.data.result.data;
-             const success = action.payload.data.success;
-             // alert(list)
-             return todos;
+             {
+                 const list = +action.payload.config.list;
+                 console.log(action.payload.config);
+                 const todos = action.payload.data.result.data;
+                 console.log(todos);
+                 const success = action.payload.data.success;
+                 // alert(list)
+                 return todos;
+             }
 
 
          default:

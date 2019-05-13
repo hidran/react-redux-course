@@ -1,25 +1,28 @@
-
 import React from 'react';
 import PropTypes from 'prop-types';
 
 
-export default function todo({todoItem, toggleTodo, id, removeTodo}){
-//dispatch(removeTodo(i))
-return (
-<li  className={todoItem.completed? 'completed':''} 
-onClick ={() => toggleTodo(id,!todoItem.completed)}>
-<span className={todoItem.completed? 'completed':'uncomplete'}></span>
+export default function todo({ todoItem, toggleTodo, id, removeTodo }) {
+    //dispatch(removeTodo(i))
+    return ( <
+        li className = { todoItem.completed ? 'completed' : '' }
+        onClick = {
+            () => toggleTodo(todoItem, !todoItem.completed) } >
 
-{todoItem.todo} 
-<span className ="cross" onClick ={ (e) =>
-{
-    e.stopPropagation();
-    removeTodo(id)
-} 
+        <
+        span className = { todoItem.completed ? 'completed' : 'uncomplete' } > < /span>
 
-}></span>
-</li>
-) ;
+        { todoItem.todo } <
+        span className = "cross"
+        onClick = {
+            (e) => {
+                e.stopPropagation();
+                removeTodo(id)
+            }
+
+        } > < /span> <
+        /li>
+    );
 }
 todo.defaultProps = {
     id: 0
@@ -31,7 +34,7 @@ todo.propTypes = {
         todo: PropTypes.string,
         id: PropTypes.number
     }),
-    toggleTodo:PropTypes.func.isRequired,
-    id:PropTypes.number,
-    removeTodo:PropTypes.func.isRequired
+    toggleTodo: PropTypes.func.isRequired,
+    id: PropTypes.number,
+    removeTodo: PropTypes.func.isRequired
 }

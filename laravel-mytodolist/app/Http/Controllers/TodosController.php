@@ -15,9 +15,9 @@ class TodosController extends Controller
     public function index( Request $req)
     {
       //   request()->input('list_id');
-      $list = $req->list_id ?? 1;
+      $list = $req->list_id ? : 1;
         $result =  Todo::where('list_id',$list)
-        ->select(['id', 'todo','list_id'])
+        ->select(['id', 'todo','list_id','completed'])
 
         ->orderBy('id', 'DESC')
         ->paginate(20);
@@ -32,7 +32,14 @@ class TodosController extends Controller
      */
     public function store(Request $req)
     {
-        $todo = Todo::create($req->all());
+        $data = $req->only(['list_id','todo','completed']);
+        $data['list_id'] = $data['list_id'] ? : 1;
+        /**
+         * Todo
+         * Add user id from session
+         */
+        $data['user_id'] = 1;
+        $todo = Todo::create($data);
         return $this->getResult( $todo->toArray() );
     }
 
