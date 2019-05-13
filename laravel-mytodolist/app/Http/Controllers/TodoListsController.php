@@ -14,7 +14,8 @@ class TodoListsController extends Controller
      */
     public function index()
     {
-       return TodoList::paginate(20);
+       $lists =  TodoList::paginate(20);
+       return $this->getResult($lists->toArray());
     }
 
     /**
@@ -32,11 +33,8 @@ class TodoListsController extends Controller
         $todoList->user_id = $user_id;
         $todoList->deleted_at = now();
        $success =  $todoList->save();
+       return $this->getResult($todoList->toArray(),$success);
 
-    return response()->json([
-        'data' => $todoList,
-        'success' => $success
-    ], 201);
       //  return TodoList::create(compact('name','user_id'));
     }
 
@@ -48,10 +46,7 @@ class TodoListsController extends Controller
      */
     public function show(TodoList $todolist)
     {
-        return response()->json([
-            'data' => $todolist,
-            'success' => 1
-        ]);
+        return $this->getResult($todolist->toArray());
     }
 
     /**
@@ -65,10 +60,10 @@ class TodoListsController extends Controller
     {
         $todolist->name = $request->name;
         $success = $todolist->save();
-        return response()->json([
-            'data' => $todolist,
-            'success' => $success
-        ]);
+        return $this->getResult(
+            $todolist->toArray(),
+          $success
+       );
     }
 
     /**
@@ -82,10 +77,18 @@ class TodoListsController extends Controller
 
 
     $success = $todolist->delete();
-    return response()->json([
-        'data' => $todolist,
-        'success' => $success
-    ]);
+    return $this->getResult(
+         $todolist->toArray(),
+       $success
+    );
+    }
+
+    private function getResult(array $data =[] , $success = true)
+    {
+        return response()->json([
+            'result' => $data,
+            'success' => $success
+        ]);
     }
 
 }

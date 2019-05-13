@@ -15,12 +15,13 @@ class TodosController extends Controller
     public function index( Request $req)
     {
       //   request()->input('list_id');
-      $list = $req->list_id ?? 0;
-        return Todo::where('list_id',$list)
-        ->select(['id', 'todo'])
+      $list = $req->list_id ?? 1;
+        $result =  Todo::where('list_id',$list)
+        ->select(['id', 'todo','list_id'])
 
         ->orderBy('id', 'DESC')
         ->paginate(20);
+        return $this->getResult( $result->toArray() );
     }
 
     /**
@@ -31,7 +32,8 @@ class TodosController extends Controller
      */
     public function store(Request $req)
     {
-        return Todo::create($req->all());
+        $todo = Todo::create($req->all());
+        return $this->getResult( $todo->toArray() );
     }
 
     /**
@@ -42,7 +44,7 @@ class TodosController extends Controller
      */
     public function show(Todo $todo)
     {
-        return $todo;
+        return $this->getResult( $todo->toArray() );
     }
 
     /**
@@ -59,10 +61,7 @@ class TodosController extends Controller
         $todo->completed =(int) $req->completed;
         $todo->list_id = (int) $req->list_id;
         $success = $todo->save();
-        return response()->json([
-            'data' => $todo,
-            'success' => $success
-        ]);
+        return $this->getResult( $todo->toArray(), $success);
     }
 
     /**
@@ -76,9 +75,13 @@ class TodosController extends Controller
 
 
     $success = $todo->delete();
-    return response()->json([
-        'data' => $todo,
-        'success' => $success
-    ]);
+    return $this->getResult( $todo->toArray() ,$success);
+    }
+    private function getResult(array $data =[] , $success = true)
+    {
+        return response()->json([
+            'result' => $data,
+            'success' => $success
+        ]);
     }
 }

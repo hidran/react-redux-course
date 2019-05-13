@@ -30,11 +30,10 @@
          case `${TODOS}_FULFILLED`:
              const list = +action.payload.config.list;
              console.log(action.payload.config);
+             const todos = action.payload.data.result.data;
+             const success = action.payload.data.success;
              // alert(list)
-             if (!list) {
-                 return action.payload.data;
-             }
-             return action.payload.data.filter(todo => +todo.list === list);
+             return todos;
 
 
          default:
