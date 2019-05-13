@@ -1,27 +1,36 @@
 import {
-  LISTS,
-  ADD_LIST, 
-  REMOVE_LIST
- 
+    LISTS,
+    ADD_LIST,
+    REMOVE_LIST
 
- } from './../actions/actiontypes'; 
 
- export default function listsReducer(state =[], action){
+} from './../actions/actiontypes';
 
-  switch(action.type){
-    case `${LISTS}_FULFILLED`:
-      return action.payload.data;
+export default function listsReducer(state = [], action) {
 
-      case   `${ADD_LIST}_FULFILLED`:
-      return [
-           action.payload.data,
-          ...state
-      ]
-      case    `${REMOVE_LIST}_FULFILLED`:
-      return state.filter( list => list.id !== action.payload.config.id);
+    switch (action.type) {
+        case `${LISTS}_FULFILLED`:
+            return action.payload.data.result.data;
 
-      default:
-      return state;
-  }
-   
- }
+        case `${ADD_LIST}_FULFILLED`:
+            return [
+                action.payload.data.result,
+                ...state
+            ]
+        case `${REMOVE_LIST}_FULFILLED`:
+            {
+                const success = action.payload.data.success;
+
+                if (!success) {
+                    return state;
+                }
+
+                return state.filter(list => success && list.id !== action.payload.config.id);
+            }
+
+
+        default:
+            return state;
+    }
+
+}
