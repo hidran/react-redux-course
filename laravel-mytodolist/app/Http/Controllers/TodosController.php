@@ -16,11 +16,17 @@ class TodosController extends Controller
     {
       //   request()->input('list_id');
       $list = $req->list_id ? : 1;
-        $result =  Todo::where('list_id',$list)
+      $where = [
+        'list_id' => $list
+      ];
+      if($req->has('filter') && $req->filter!=='ALL'){
+          $where['completed'] = $req->filter === 'TODO'? 0 : 1;
+      }
+        $result =  Todo::where( $where)
         ->select(['id', 'todo','list_id','completed'])
 
         ->orderBy('id', 'DESC')
-        ->paginate(20);
+        ->paginate(10);
         return $this->getResult( $result->toArray() );
     }
 

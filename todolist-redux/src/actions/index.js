@@ -9,10 +9,17 @@ import {
 
 } from './actiontypes';
 
-export const getTodos = (list = 0) => {
+export const getTodos = (list = 1, filter = 'ALL') => {
     return {
         type: TODOS,
-        payload: axios.get(APIURL + '?list_id=' + list, { list })
+        payload: axios.get(APIURL , 
+        {
+            params:{
+            list_id: list,
+            filter
+        }
+    }
+        )
     }
 }
 

@@ -11,12 +11,11 @@ export default class TodoList extends Component {
         }
     }
     componentDidMount(){
-
-        this.props.getTodos(this.props.list);
+        this.props.getTodos(this.props.list, this.props.filter);
     }
     componentDidUpdate(prevProps){
-       if(this.props.list !==prevProps.list ){
-        this.props.getTodos(this.props.list); 
+       if(this.props.list !== prevProps.list  || this.props.filter !== prevProps.filter){
+        this.props.getTodos(this.props.list, this.props.filter); 
        }
     }
   

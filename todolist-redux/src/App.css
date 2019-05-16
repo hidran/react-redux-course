@@ -93,3 +93,18 @@ ul.menu a.active {
   background-color: #3b80d1;
   text-decoration: none;
 }
+ul.footer{
+  background-color:transparent;
+}
+ul.footer li{
+  padding: 5px;
+  background-color: #282c34;
+}
+ul.footer li.active{
+  background-color: #3b80d1;
+  color: #fff;
+}
+ul.footer li a:hover{
+  background-color: transparent;
+  text-decoration: none;
+}
