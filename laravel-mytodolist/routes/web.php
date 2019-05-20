@@ -21,3 +21,7 @@ Route::get('/', function () {
 Route::apiResource('todos', 'TodosController');
 Route::apiResource('todolists', 'TodoListsController');
 //Route::get('todos/{id}','TodosController@show');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
