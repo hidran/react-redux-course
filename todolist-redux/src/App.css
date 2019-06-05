@@ -108,3 +108,47 @@ ul.footer li a:hover{
   background-color: transparent;
   text-decoration: none;
 }
+.form, .login {
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+}
+.form-group {
+  margin: 10px;
+  
+}
+.form-group input{
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  
+}
+.btn {
+  padding: 5px;
+  background-color: #fff;
+  color: #222;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  min-width: 120px;
+  margin:5px;
+}
+.btn-success {
+  background-color: #3b80d1;
+  color:#fff;
+}
+.form-group label{
+  padding: 5px;
+  font-weight: bold;
+}
+.buttons{
+  display: flex;
+  align-items: stretch;
+
+}
+button[type=reset]{
+  background: #fff;
+  color:#222;
+}

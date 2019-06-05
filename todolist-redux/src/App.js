@@ -7,6 +7,8 @@ import {getLists} from './actions/lists';
 import Mytodos from './containers/mytodos';
 import Lists from './containers/mytodolists';
 import {Route, Switch} from 'react-router-dom';
+import Login from './components/login';
+import Signup from './components/signup';
 
 class App extends Component {
  componentDidMount() {
@@ -22,8 +24,8 @@ class App extends Component {
         <Route path ="(/|/todos)" component={Mytodos} />
         <Route path ="/lists/:list([0-9]+)/todos" component={Mytodos} />
         <Route path="/lists"  component={Lists}   />
-        <Route path="/signup"  render ={() => <div>SIGNUP</div>}   />
-        <Route path="/login"   render ={() => <div title="LOGIN">LOGIN</div>}   />
+        <Route path="/signup"  component={Signup}   />
+        <Route path="/login"   component ={Login}   />
         </Switch>
       </div>
     );
