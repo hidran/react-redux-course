@@ -134,6 +134,7 @@ ul.footer li a:hover{
   border: 1px solid #ddd;
   min-width: 120px;
   margin:5px;
+  cursor: pointer;
 }
 .btn-success {
   background-color: #3b80d1;
