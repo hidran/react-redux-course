@@ -1,12 +1,24 @@
 import React, {useState,useEffect} from 'react';
+import axios from 'axios';
+import {LARAVEL_API} from  '../config/config';
+import  Auth from '../auth/auth';
 
-const Login = () => {
+const Login = (pars) => {
+    
          const [email, setEmail] = useState('');
          const [password, setpassword] = useState('');
 
          const loginUser = (e) =>{
-             alert(email +' ' + password)
+           
              e.preventDefault();
+
+             Auth.signin(email, password)
+             .then( payload => {
+                alert(payload.access_token);
+                Auth.logout();
+             });
+            
+          
          }
          const resetForm = () =>{
             setEmail('');
