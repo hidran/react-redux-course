@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="64bbd2fd-e8b2-4c78-9fe7-0b1d2daac68a" name="Default Changelist" comment="adds db.json server" />
+    <list default="true" id="64bbd2fd-e8b2-4c78-9fe7-0b1d2daac68a" name="Default Changelist" comment="adds db.json server">
+      <change beforePath="$PROJECT_DIR$/../laravel-mytodolist/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../laravel-mytodolist/app/Http/Controllers/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../laravel-mytodolist/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/../laravel-mytodolist/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/todolist-redux.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/todolist-redux.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,7 +17,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -68,6 +75,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -80,24 +88,17 @@
               <item name="todolist-redux" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="todolist-redux" type="b2602c69:ProjectViewProjectNode" />
-              <item name="todolist-redux" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="HTTP Request" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../laravel-mytodolist" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/node_modules/eslint" />
@@ -295,6 +296,7 @@
       <workItem from="1555256127090" duration="525000" />
       <workItem from="1557249083217" duration="1151000" />
       <workItem from="1559629665600" duration="17000" />
+      <workItem from="1560096698656" duration="450000" />
     </task>
     <task id="LOCAL-00001" summary="adds middleware logger to app">
       <created>1549873428499</created>
@@ -321,12 +323,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22204000" />
+    <option name="totallyTimeSpent" value="22654000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24528302" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24528302" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="DB Browser" order="3" />
@@ -342,7 +344,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.6164199" />
       <window_info anchor="bottom" id="DB Execution Console" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.647925" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.647925" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="bottom" id="GitLabIntegration" order="13" />
       <window_info anchor="bottom" id="REST Client" order="14" weight="0.5261708" />
@@ -603,9 +605,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/db.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/db.json" />
     <entry file="file://$PROJECT_DIR$/src/components/lists.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">

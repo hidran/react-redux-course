@@ -24,8 +24,10 @@ class App extends Component {
         <Route path ="(/|/todos)" component={Mytodos} />
         <Route path ="/lists/:list([0-9]+)/todos" component={Mytodos} />
         <Route path="/lists"  component={Lists}   />
+       
         <Route path="/signup"  component={Signup}   />
         <Route path="/login"   component ={Login}   />
+       
         </Switch>
       </div>
     );
