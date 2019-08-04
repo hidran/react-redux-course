@@ -69,7 +69,7 @@ function Auth() {
      const refresh = () => {};
 
     return {
-      
+      getUser,
       signin ,
       signup,
       logout,

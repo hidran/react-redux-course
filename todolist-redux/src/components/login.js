@@ -14,8 +14,9 @@ const Login = (pars) => {
 
              Auth.signin(email, password)
              .then( payload => {
-                alert(payload.access_token);
-                Auth.logout();
+              
+                pars.history.push('/');
+               
              });
             
           

@@ -1,12 +1,18 @@
 import React from 'react';
-import {Link, NavLink} from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
+import Auth from '../auth/auth';
+
 export default function header(){
+    const user = Auth.getUser();
 return (
     <header className="App-header">
  
         <nav>
         
             <ul className="menu">
+            {
+               user?
+               <>
                 <li>
                 <NavLink exact activeStyle ={{backgroundColor:'red'}} to="/">MY TODO LISTS</NavLink>
                 </li>
@@ -16,12 +22,21 @@ return (
                 <li>
                 <NavLink  activeClassName="active" to="/todos">ALL TODOS</NavLink>
                 </li>
-                <li>
-                <NavLink  activeClassName="active" to="/signup">SIGNUP</NavLink>
-                </li>
-                <li>
-                <NavLink  activeClassName="active" to="/login">LOGIN</NavLink>
-                </li>
+                </>
+                : null
+            }
+                {
+                    user ? null:(
+                        <>
+                            <li>
+                            <NavLink  activeClassName="active" to="/signup">SIGNUP</NavLink>
+                            </li>
+                            <li>
+                            <NavLink  activeClassName="active" to="/login">LOGIN</NavLink>
+                            </li>
+                        </>
+                    )
+                }
             </ul>
         </nav>
 
