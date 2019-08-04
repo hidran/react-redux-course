@@ -9,7 +9,8 @@ import Lists from './containers/mytodolists';
 import {Route, Switch} from 'react-router-dom';
 import Login from './components/login';
 import Signup from './components/signup';
-
+import Logout from './components/logout';
+import PrivateRoute from './containers/privateroute';
 class App extends Component {
  componentDidMount() {
      //this.props.getTodos();
@@ -21,12 +22,13 @@ class App extends Component {
       <div className="App">
        <Header/>
        <Switch>
-        <Route path ="(/|/todos)" component={Mytodos} />
+        <PrivateRoute path ="(/|/todos)" component={Mytodos} />
         <Route path ="/lists/:list([0-9]+)/todos" component={Mytodos} />
         <Route path="/lists"  component={Lists}   />
        
         <Route path="/signup"  component={Signup}   />
         <Route path="/login"   component ={Login}   />
+        <Route path="/logout"   component ={Logout}   />
        
         </Switch>
       </div>

@@ -26,7 +26,9 @@ return (
                 : null
             }
                 {
-                    user ? null:(
+                    user ? <li> Welcome {user.name}
+                            <NavLink to="/logout">LOGOUT</NavLink>
+                            </li>:(
                         <>
                             <li>
                             <NavLink  activeClassName="active" to="/signup">SIGNUP</NavLink>
