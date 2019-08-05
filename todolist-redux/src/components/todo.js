@@ -27,7 +27,7 @@ todo.defaultProps = {
 todo.propTypes = {
 
     todoItem: PropTypes.shape({
-        completed: PropTypes.bool,
+        completed: PropTypes.number,
         todo: PropTypes.string,
         id: PropTypes.number
     }),

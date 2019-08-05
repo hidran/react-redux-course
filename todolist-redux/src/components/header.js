@@ -1,9 +1,10 @@
 import React from 'react';
 import { NavLink} from 'react-router-dom';
-import Auth from '../auth/auth';
+
+ import {UserDataContext} from '../containers/logincontext';
 
 export default function header(){
-    const user = Auth.getUser();
+    const [user]= React.useContext(UserDataContext);
 return (
     <header className="App-header">
  

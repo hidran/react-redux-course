@@ -1,20 +1,18 @@
 import React, {useState} from 'react';
-import axios from 'axios';
-import {LARAVEL_API} from  '../config/config';
 import  Auth from '../auth/auth';
-
+import {UserDataContext} from '../containers/logincontext';
 const Login = (pars) => {
     
          const [email, setEmail] = useState('');
          const [password, setpassword] = useState('');
-
+         const [, setUser] = React.useContext(UserDataContext);
          const loginUser = (e) =>{
            
              e.preventDefault();
 
              Auth.signin(email, password)
              .then( payload => {
-              
+                setUser(payload.user);
                 pars.history.push('/');
                
              });

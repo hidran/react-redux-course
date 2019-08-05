@@ -11,6 +11,9 @@ import Login from './components/login';
 import Signup from './components/signup';
 import Logout from './components/logout';
 import PrivateRoute from './containers/privateroute';
+import {UserDataProvider} from './containers/logincontext';
+
+
 class App extends Component {
  componentDidMount() {
      //this.props.getTodos();
@@ -19,12 +22,13 @@ class App extends Component {
 
     render() {
     return (
+      <UserDataProvider>
       <div className="App">
        <Header/>
        <Switch>
         <PrivateRoute path ="(/|/todos)" component={Mytodos} />
-        <Route path ="/lists/:list([0-9]+)/todos" component={Mytodos} />
-        <Route path="/lists"  component={Lists}   />
+        <PrivateRoute path ="/lists/:list([0-9]+)/todos" component={Mytodos} />
+        <PrivateRoute path="/lists"  component={Lists}   />
        
         <Route path="/signup"  component={Signup}   />
         <Route path="/login"   component ={Login}   />
@@ -32,6 +36,7 @@ class App extends Component {
        
         </Switch>
       </div>
+      </UserDataProvider>
     );
   }
 }
