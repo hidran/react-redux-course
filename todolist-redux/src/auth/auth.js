@@ -2,6 +2,15 @@ import axios   from 'axios';
 import {AUTH_URL} from '../config/config';
 
 function Auth() {
+    const isTokenExpired = () =>{
+        const expires = +localStorage.getItem('token-expires');
+        const res =  (new Date()) > expires;
+        if(res){
+            localStorage.removeItem('token-expires');
+            localStorage.removeItem('auth')
+        }
+        return res;
+    };
     const handleEror = (resp)=>{
         let message = '';
         switch (+resp.status) {
@@ -37,7 +46,13 @@ function Auth() {
           password
         }
       );
+      const data = result['data'];
+      if(!data || !data['access_token']){
+          return Promise.reject('Invalid server response') ;
+      }
 
+      const expireDate = (new Date()).getTime() + data['expires_in']*1000;
+        localStorage.setItem('token-expires', expireDate);
       localStorage.setItem('auth', JSON.stringify(result.data));
 
       return result.data;
@@ -51,6 +66,9 @@ function Auth() {
 
  };
     const getToken = () =>{
+        if(isTokenExpired()){
+            return null;
+        }
        const auth = JSON.parse(localStorage.getItem('auth'));
        if(auth){
            return auth.access_token;
@@ -59,6 +77,9 @@ function Auth() {
     }
 
      const getUser = () =>{
+         if(isTokenExpired()){
+             return null;
+         }
        const auth = JSON.parse(localStorage.getItem('auth'));
        if(auth){
            return auth.user;
@@ -68,6 +89,7 @@ function Auth() {
 
 
     const signup=()=> {};
+
      const logout = async () => {
          addAxiosToken();
          try {
@@ -89,8 +111,8 @@ function Auth() {
       signin ,
       signup,
       logout,
-      refresh
-
+      refresh,
+        isTokenExpired
     }
 
 }
