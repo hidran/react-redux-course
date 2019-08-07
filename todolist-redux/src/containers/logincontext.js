@@ -1,12 +1,13 @@
 import React from 'react';
 import Auth from '../auth/auth';
 
-const user = Auth.getUser();
-const UserDataContext = React.createContext(user);
+const userData = Auth.getUser();
+const UserDataContext = React.createContext(userData);
 
 const UserDataProvider = (props) => {
 
-    const [user, setUser] = React.useState(user);
+    const [user, setUser] = React.useState(userData);
+
 return (
  <UserDataContext.Provider value ={[user, setUser]}>
   {  props.children}
