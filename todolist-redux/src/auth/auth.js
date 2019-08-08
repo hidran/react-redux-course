@@ -46,16 +46,7 @@ function Auth() {
           password
         }
       );
-      const data = result['data'];
-      if(!data || !data['access_token']){
-          return Promise.reject('Invalid server response') ;
-      }
-
-      const expireDate = (new Date()).getTime() + data['expires_in']*1000;
-        localStorage.setItem('token-expires', expireDate);
-      localStorage.setItem('auth', JSON.stringify(result.data));
-
-      return result.data;
+        return manageResult(result);
 
     } catch( e ){
         console.log(e.response);
@@ -88,7 +79,36 @@ function Auth() {
     }
 
 
-    const signup=()=> {};
+    function manageResult(result) {
+        const data = result['data'];
+        if (!data || !data['access_token']) {
+            return Promise.reject('Invalid server response');
+        }
+
+        const expireDate = (new Date()).getTime() + data['expires_in'] * 1000;
+        localStorage.setItem('token-expires', expireDate);
+        localStorage.setItem('auth', JSON.stringify(result.data));
+
+        return result.data;
+    }
+
+    const signup= async (email, name, password)=> {
+        try {
+            const result = await axios.post( AUTH_URL + 'signup',
+                {
+                    email,
+                    name,
+                    password
+                }
+            );
+            return manageResult(result);
+
+        } catch( e ){
+            console.log(e.response);
+            return Promise.reject(handleEror(e.response)) ;
+        }
+
+    };
 
      const logout = async () => {
          addAxiosToken();

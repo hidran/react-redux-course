@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Request;
 
 class AuthController extends Controller
 {
@@ -14,9 +17,8 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login']]);
+        $this->middleware('auth:api', ['except' => ['login','signup']]);
     }
-
     /**
      * Get a JWT via given credentials.
      *
@@ -28,6 +30,35 @@ class AuthController extends Controller
 
         if (! $token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
+        }
+
+        return $this->respondWithToken($token);
+    }
+    /**
+     * Get a JWT via given credentials.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function signup(Request $request)
+    {
+        $name = $request::input('name');
+        $email= $request::input('email');
+        $password = $request::input('password');
+
+        $userExists = User::whereEmail($email)->exists();
+        if($userExists){
+            return response()->json(['error' => 'Email '.$email .' already taken'], 401);
+        }
+        $user = new User();
+        $user->name = $name;
+        $user->email = $email;
+        $passcrypted = Hash::make($password);
+        $user->password =$passcrypted;
+        $user->save();
+      //  $user = User::create(compact('name','email','passcrypted'));
+
+        if (! $token = auth()->login($user)) {
+            return response()->json(['error' => 'Error creating user'], 401);
         }
 
         return $this->respondWithToken($token);

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/laravel-mytodolist.iml" filepath="$PROJECT_DIR$/.idea/laravel-mytodolist.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../todolist-redux/.idea/todolist-redux.iml" filepath="$PROJECT_DIR$/../todolist-redux/.idea/todolist-redux.iml" />
     </modules>
   </component>
 </project>
