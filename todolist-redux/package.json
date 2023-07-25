@@ -10,7 +10,7 @@
     "react-dom": "^16.8.6",
     "react-hook": "0.0.1",
     "react-redux": "^7.0.1",
-    "react-router-dom": "^5.0.0",
+    "react-router-dom": "^5.3.4",
     "react-scripts": "2.1.1",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
